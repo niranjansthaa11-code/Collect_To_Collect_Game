@@ -2,7 +2,7 @@ extends Node2D
 
 var ball_scence = preload("res://Scences/Ball.tscn")
 var score =0
-var timeleft =30
+var timeleft =15
 
 # Called when the node enters the scene tree for the first time.
 func _ready(): #if the start is pressed down 
@@ -17,7 +17,7 @@ func _on_play_pressed():
 	$Game/Spawanner.start()
 	$Game/Countdown_TImer.start()
 	score = 0
-	timeleft = 5
+	timeleft = 15
 	update_labels()
 	print("Game is Starting...")
 
@@ -32,12 +32,21 @@ func _on_spawanner_timeout() -> void:
 func _on_countdown_t_imer_timeout() -> void:
 	timeleft -=1
 	update_labels()
+	$Game/Spawanner.wait_time = max(0.4, $Game/Spawanner.wait_time - 0.02)
 	if timeleft <= 0:
 		end_game()
 	pass # Replace with function body.
-func add_score():
-	score += 1
+func add_time():
+	timeleft +=2
+	score+=1
 	update_labels()
+func subtract_time():
+	timeleft -=3
+	shake_screen()
+	update_labels()
+	if timeleft <= 0:
+		end_game()
+	
 func update_labels():
 	$Game/Score.text = "Score: " + str(score)
 	$Game/Timer.text = "Time: " + str(timeleft)
@@ -54,3 +63,9 @@ func end_game():
 func _on_restart_button_pressed() -> void:
 	get_tree().reload_current_scene()
 	pass # Replace with function body.
+func shake_screen():
+	var tween = create_tween()
+	var original_pos = $Game.position
+	for i in 5:
+		tween.tween_property($Game, "position", original_pos + Vector2(randf_range(-8,8), randf_range(-8,8)), 0.03)
+	tween.tween_property($Game, "position", original_pos, 0.03)

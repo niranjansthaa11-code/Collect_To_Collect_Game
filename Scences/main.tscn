@@ -17,7 +17,7 @@ expand_margin_top = 5.0
 expand_margin_right = 5.0
 expand_margin_bottom = 5.0
 
-[node name="Main" type="Node2D" unique_id=226518122]
+[node name="Main" type="Node2D" unique_id=226518122 groups=["game_manager"]]
 script = ExtResource("1_80y6g")
 
 [node name="Start Screen" type="CanvasLayer" parent="." unique_id=1708620685]
