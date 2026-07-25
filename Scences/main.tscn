@@ -1,3 +1,102 @@
 [gd_scene format=3 uid="uid://q1adwqxlw0hc"]
 
+[ext_resource type="Script" uid="uid://cy63mg3jta84t" path="res://Scripts/main.gd" id="1_80y6g"]
+[ext_resource type="Texture2D" uid="uid://buhdlvgpmd1ru" path="res://Assets/play.png" id="2_7cn2w"]
+[ext_resource type="Texture2D" uid="uid://ccqri6pmv0bj2" path="res://Assets/Background.png" id="2_h1my3"]
+[ext_resource type="Script" uid="uid://cdcgb1en5jnis" path="res://Scripts/basket.gd" id="3_4bauf"]
+[ext_resource type="Texture2D" uid="uid://blbjt1c3dj7aa" path="res://Assets/Basket.png" id="3_7cn2w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4bauf"]
+size = Vector2(176, 168)
+
 [node name="Main" type="Node2D" unique_id=226518122]
+script = ExtResource("1_80y6g")
+
+[node name="Start Screen" type="CanvasLayer" parent="." unique_id=1708620685]
+
+[node name="Background" type="TextureRect" parent="Start Screen" unique_id=119559608]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_h1my3")
+
+[node name="PlayButton" type="TextureButton" parent="Start Screen" unique_id=384086071]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -128.0
+offset_right = 128.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("2_7cn2w")
+
+[node name="Game" type="Node2D" parent="." unique_id=305304599]
+
+[node name="Background" type="TextureRect" parent="Game" unique_id=429481179]
+offset_left = -16.0
+offset_right = 1432.0
+offset_bottom = 2552.0
+size_flags_horizontal = 4
+texture = ExtResource("2_h1my3")
+
+[node name="Basket" type="Area2D" parent="Game" unique_id=1897790553]
+position = Vector2(360, 1150)
+script = ExtResource("3_4bauf")
+
+[node name="Sprite2D" type="Sprite2D" parent="Game/Basket" unique_id=1318503810]
+position = Vector2(344, 1081)
+scale = Vector2(1, 0.964)
+texture = ExtResource("3_7cn2w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Game/Basket" unique_id=2053434278]
+position = Vector2(344, 1182)
+shape = SubResource("RectangleShape2D_4bauf")
+
+[node name="Spawanner" type="Timer" parent="Game" unique_id=1754902724]
+autostart = true
+
+[node name="Score" type="Label" parent="Game" unique_id=7798654]
+offset_left = 20.0
+offset_top = 50.0
+offset_right = 60.0
+offset_bottom = 73.0
+text = "Score: 0"
+
+[node name="Timer" type="Label" parent="Game" unique_id=2112225793]
+offset_left = 600.0
+offset_top = 50.0
+offset_right = 640.0
+offset_bottom = 73.0
+text = "Time: 30"
+
+[node name="Countdown_TImer" type="Timer" parent="Game" unique_id=243276784 groups=["game_manager"]]
+
+[node name="GameOver" type="CanvasLayer" parent="." unique_id=1422970154]
+visible = false
+
+[node name="Final_score_label" type="Label" parent="GameOver" unique_id=793311116]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -160.0
+offset_top = 500.0
+offset_right = -120.0
+offset_bottom = 523.0
+grow_horizontal = 2
+
+[node name="Restart Button" type="Button" parent="GameOver" unique_id=1450735050]
+offset_left = 250.0
+offset_top = 650.0
+offset_right = 338.0
+offset_bottom = 681.0
+text = "Play Again"
+
+[connection signal="timeout" from="Game/Spawanner" to="." method="_on_spawanner_timeout"]
+[connection signal="timeout" from="Game/Countdown_TImer" to="." method="_on_countdown_t_imer_timeout"]
+[connection signal="pressed" from="GameOver/Restart Button" to="." method="_on_restart_button_pressed"]
