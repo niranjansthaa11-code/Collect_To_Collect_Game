@@ -57,6 +57,16 @@ position = Vector2(347.00003, 734.99994)
 scale = Vector2(1.6769246, 1.4193456)
 texture = ExtResource("4_62xjx")
 
+[node name="OwnPromo" type="Label" parent="Start Screen" unique_id=276446694]
+offset_left = 93.0
+offset_top = 1199.0
+offset_right = 659.0
+offset_bottom = 1257.0
+theme_override_colors/font_color = Color(0.6666667, 0.2, 0.41568628, 1)
+theme_override_fonts/font = ExtResource("4_4bauf")
+theme_override_font_sizes/font_size = 50
+text = "Made by Niranjan Shrestha"
+
 [node name="Game" type="Node2D" parent="." unique_id=305304599]
 
 [node name="Background" type="Sprite2D" parent="Game" unique_id=1431453251]

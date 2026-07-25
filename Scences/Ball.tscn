@@ -6,7 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://c4awf0xnmg6jl" path="res://Assets/vibrate.mp3" id="4_b27ni"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lptmf"]
-radius = 32.0
+radius = 40.0
 
 [node name="Ball" type="Area2D" unique_id=1358627468]
 script = ExtResource("1_bwntd")
