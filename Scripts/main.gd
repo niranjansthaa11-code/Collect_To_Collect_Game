@@ -4,6 +4,7 @@ var ball_scence = preload("res://Scences/Ball.tscn")
 var score =0
 var timeleft =10
 var current_ball_speed = 500
+var countdown_playing = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready(): #if the start is pressed down 
@@ -20,6 +21,7 @@ func _on_play_pressed():
 	$Game/Countdown_TImer.start()
 	score = 0
 	timeleft = 10
+	countdown_playing=false
 	update_labels()
 	print("Game is Starting...")
 
@@ -39,7 +41,10 @@ func _on_countdown_t_imer_timeout() -> void:
 	current_ball_speed = min(600, current_ball_speed + 8)
 	if timeleft <= 3 and timeleft > 0:
 		$countdown.play()
-	
+		countdown_playing = true
+	else:
+		countdown_playing=false
+		$countdown.stop()
 	if timeleft <= 5:
 		$Game/Timer.modulate = Color(1, 0, 0)
 	else:
