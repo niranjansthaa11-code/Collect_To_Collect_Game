@@ -4,7 +4,14 @@
 [ext_resource type="Texture2D" uid="uid://buhdlvgpmd1ru" path="res://Assets/play.png" id="2_7cn2w"]
 [ext_resource type="Texture2D" uid="uid://ccqri6pmv0bj2" path="res://Assets/Background.png" id="2_h1my3"]
 [ext_resource type="FontFile" uid="uid://d8672lawb12h" path="res://Scences/augiepixel (1).ttf" id="4_4bauf"]
+[ext_resource type="Texture2D" uid="uid://chbgf3a0wsn3i" path="res://Assets/playhere.png" id="4_62xjx"]
 [ext_resource type="Texture2D" uid="uid://bsvn08835uh6k" path="res://Assets/Game_Over.png" id="5_h1my3"]
+[ext_resource type="Texture2D" uid="uid://h2kxf5w84ho8" path="res://Assets/backgame.png" id="5_ki25y"]
+[ext_resource type="AudioStream" uid="uid://usdr8l6dg5id" path="res://Assets/bac.mp3" id="6_103du"]
+[ext_resource type="AudioStream" uid="uid://0smqf4nuxb8j" path="res://Assets/woosh.mp3" id="7_s1s6e"]
+[ext_resource type="AudioStream" uid="uid://b7m6mlasruede" path="res://Assets/countdown.mp3" id="8_xehjk"]
+[ext_resource type="AudioStream" uid="uid://cid6f1ws5w4kr" path="res://Assets/finalgame.mp3" id="9_x60gc"]
+[ext_resource type="AudioStream" uid="uid://c4awf0xnmg6jl" path="res://Assets/vibrate.mp3" id="11_pnnt3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h1my3"]
 bg_color = Color(0.6666667, 0.2, 0.41568628, 1)
@@ -23,7 +30,6 @@ script = ExtResource("1_80y6g")
 [node name="Start Screen" type="CanvasLayer" parent="." unique_id=1708620685]
 
 [node name="Background" type="TextureRect" parent="Start Screen" unique_id=119559608]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -43,18 +49,22 @@ offset_right = 128.0
 offset_bottom = 128.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(197, 157)
 texture_normal = ExtResource("2_7cn2w")
+
+[node name="PlayhereDesign" type="Sprite2D" parent="Start Screen" unique_id=2106491071]
+position = Vector2(347.00003, 734.99994)
+scale = Vector2(1.6769246, 1.4193456)
+texture = ExtResource("4_62xjx")
 
 [node name="Game" type="Node2D" parent="." unique_id=305304599]
 
 [node name="Background" type="Sprite2D" parent="Game" unique_id=1431453251]
-visible = false
 position = Vector2(360, 640.0499)
 scale = Vector2(1, 1.1850924)
-texture = ExtResource("2_h1my3")
+texture = ExtResource("5_ki25y")
 
 [node name="Spawanner" type="Timer" parent="Game" unique_id=1754902724]
-autostart = true
 
 [node name="Score" type="Label" parent="Game" unique_id=7798654]
 offset_left = 20.0
@@ -118,3 +128,23 @@ theme_override_fonts/font = ExtResource("4_4bauf")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/hover = SubResource("StyleBoxFlat_h1my3")
 text = "Play Again"
+
+[node name="Music_Player" type="AudioStreamPlayer2D" parent="." unique_id=2039984045]
+stream = ExtResource("6_103du")
+volume_db = -8.02
+autoplay = true
+
+[node name="Woosh_sound" type="AudioStreamPlayer2D" parent="." unique_id=1031271154]
+stream = ExtResource("7_s1s6e")
+
+[node name="countdown" type="AudioStreamPlayer2D" parent="." unique_id=924884566]
+stream = ExtResource("8_xehjk")
+volume_db = 13.711
+
+[node name="FinalGame" type="AudioStreamPlayer2D" parent="." unique_id=546283383]
+stream = ExtResource("9_x60gc")
+volume_db = 10.09
+
+[node name="Lost" type="AudioStreamPlayer2D" parent="." unique_id=780547937]
+stream = ExtResource("11_pnnt3")
+volume_db = 10.09

@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://2dytvxw316j1" path="res://Scripts/ball.gd" id="1_bwntd"]
 [ext_resource type="Texture2D" uid="uid://dylmb3llrb04k" path="res://Assets/Ball.png" id="2_jcpin"]
+[ext_resource type="AudioStream" uid="uid://clc5hnbn1iip" path="res://Assets/gain.mp3" id="3_lptmf"]
+[ext_resource type="AudioStream" uid="uid://c4awf0xnmg6jl" path="res://Assets/vibrate.mp3" id="4_b27ni"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lptmf"]
 radius = 32.0
@@ -14,5 +16,11 @@ texture = ExtResource("2_jcpin")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1281894713]
 shape = SubResource("CircleShape2D_lptmf")
+
+[node name="Gain" type="AudioStreamPlayer2D" parent="." unique_id=187891015]
+stream = ExtResource("3_lptmf")
+
+[node name="Lost" type="AudioStreamPlayer2D" parent="." unique_id=659436060]
+stream = ExtResource("4_b27ni")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
