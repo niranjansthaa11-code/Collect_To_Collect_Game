@@ -21,6 +21,12 @@ A small game I made for the Countdown theme where you click on falling balls to 
     <li>Survive as long as you can before the clock hits zero</li>
 </ol>
 <hr>
+<h3>Assets Used :</h3>
+<ol>
+    <li>All are handrawn mostly </li>
+    <li> MUsic used : <a>https://www.youtube.com/watch?v=OPugs48z2GU</a></li>
+</ol>
+<hr>
 <h3>Built With:</h3>
 <ol>
     <li>Godot Engine</li>
