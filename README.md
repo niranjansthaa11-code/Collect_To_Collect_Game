@@ -34,6 +34,13 @@ A small game I made for the Countdown theme where you click on falling balls to 
     <li>A lot of trial and error lol</li>
 </ol>
 <hr>
+<h4>Game Screenshots:</h4>
+<img src="https://github.com/niranjansthaa11-code/Collect_To_Collect_Game/blob/main/screenshots/1.png?raw=true" height="600" alt="game screenshot 1" />
+<img src="https://github.com/niranjansthaa11-code/Collect_To_Collect_Game/blob/main/screenshots/2.png?raw=true" height="600" alt="game screenshot 2" />
+<img src="https://github.com/niranjansthaa11-code/Collect_To_Collect_Game/blob/main/screenshots/3.png?raw=true" height="600" alt="game screenshot 3" />
+<img src="https://github.com/niranjansthaa11-code/Collect_To_Collect_Game/blob/main/screenshots/4.png?raw=true" height="600" alt="game screenshot 3" />
+<hr>
+<hr>
 GitHub Repo: https://github.com/niranjansthaa11-code/Collect_To_Collect_Game
 <hr>
 Made with ❤️ and a tons of amount of debugging in Nepal ....
