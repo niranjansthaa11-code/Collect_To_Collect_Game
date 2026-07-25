@@ -17,7 +17,7 @@ func _on_play_pressed():
 	$Game/Spawanner.start()
 	$Game/Countdown_TImer.start()
 	score = 0
-	timeleft = 30
+	timeleft = 5
 	update_labels()
 	print("Game is Starting...")
 
@@ -43,12 +43,12 @@ func update_labels():
 	$Game/Timer.text = "Time: " + str(timeleft)
 func end_game():
 	$Game/Spawanner.stop()
-	$Game/CountdownTimer.stop()
+	$Game/Countdown_TImer.stop()
 	$Game.hide()
 	$GameOver.show()
-	$GameOver/Final_score_label.text = "Game Over!\nScore: " + str(score)
+	$GameOver/Final_score_label.text = "Score: " + str(score)
 
-	print("Game Over! Final Score: ", score)
+	print(" Final Score: ", score)
 
 
 func _on_restart_button_pressed() -> void:

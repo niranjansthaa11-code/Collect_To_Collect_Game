@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dylmb3llrb04k" path="res://Assets/Ball.png" id="2_jcpin"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lptmf"]
-radius = 25.298222
+radius = 32.0
 
 [node name="Ball" type="Area2D" unique_id=1358627468]
 script = ExtResource("1_bwntd")

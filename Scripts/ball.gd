@@ -7,6 +7,7 @@ extends Area2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	input_event.connect(_on_input_event)
 	pass # Replace with function body.
 
 
@@ -20,10 +21,7 @@ func _process(delta):
 	pass
 
 
-func _on_area_entered(area: Area2D) -> void:
-	if area.name=="Basket":
-		get_tree().call_group("game_Manager","add_score")
+func _on_input_event(_viewport, event, _shape_idx):
+	if event is InputEventMouseButton and event.pressed:
+		get_tree().call_group("game_manager", "add_score")
 		queue_free()
-	
-	
-	pass # Replace with function body.

@@ -11,5 +11,5 @@ func _ready() -> void:
 func _process(delta):
 	var dir = Input.get_axis("ui_left","ui_right")
 	position.x+= dir*speed*delta
-	position.x= clamp(position.x,0,get_viewport_rect().size.x)
-	
+	var half_width = 80
+	position.x = clamp(position.x, half_width, get_viewport_rect().size.x - half_width)
